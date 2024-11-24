@@ -8,13 +8,15 @@ window.addEventListener("load", function() {
     
     // Update the volume info on page load
     updateVolumeInfo();
+    console.log("Initial Volume:", video.volume);
 });
 
 // Play Button
 document.getElementById('play').addEventListener('click', function() {
     console.log("Play Video");
     video.play();
-    updateVolumeInfo();
+    updateVolumeInfo(); // Ensure volume info is updated on play
+    console.log("Volume after Play:", video.volume);
 });
 
 // Pause Button
@@ -49,13 +51,16 @@ document.getElementById('skip').addEventListener('click', function() {
 document.getElementById('mute').addEventListener('click', function() {
     video.muted = !video.muted;
     this.textContent = video.muted ? 'Unmute' : 'Mute';
-	updateVolumeInfo();
+    updateVolumeInfo(); // Ensure volume info is updated when mute/unmute button is clicked
+    console.log("Muted State:", video.muted);
+    console.log("Volume after Mute Toggle:", video.volume);
 });
 
 // Volume Slider
 document.getElementById('slider').addEventListener('input', function() {
     video.volume = this.value / 100;
     updateVolumeInfo();
+    console.log("Volume Slider Change. New Volume:", video.volume);
 });
 
 // Old School Button
@@ -70,5 +75,7 @@ document.getElementById('orig').addEventListener('click', function() {
 
 // Update the volume information on the page
 function updateVolumeInfo() {
-    document.getElementById('volume').textContent = `${Math.round(video.volume * 100)}%`;
+    let volumeText = `${Math.round(video.volume * 100)}%`;
+    console.log("Updating Volume Info Display to:", volumeText);
+    document.getElementById('volume').textContent = volumeText;
 }
