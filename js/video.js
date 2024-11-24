@@ -49,6 +49,7 @@ document.getElementById('skip').addEventListener('click', function() {
 document.getElementById('mute').addEventListener('click', function() {
     video.muted = !video.muted;
     this.textContent = video.muted ? 'Unmute' : 'Mute';
+	updateVolumeInfo();
 });
 
 // Volume Slider
