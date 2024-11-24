@@ -1,5 +1,13 @@
 var video;
 
+// Update the volume information on the page
+function updateVolumeInfo() {
+    let volumeText = `${Math.round(video.volume * 100)}%`;
+    console.log("Updating Volume Info Display to:", volumeText);
+    document.getElementById('volume').textContent = volumeText;
+}
+
+
 window.addEventListener("load", function() {
     console.log("Good job opening the window");
     video = document.getElementById('player1');
@@ -73,9 +81,3 @@ document.getElementById('orig').addEventListener('click', function() {
     video.classList.remove('oldSchool');
 });
 
-// Update the volume information on the page
-function updateVolumeInfo() {
-    let volumeText = `${Math.round(video.volume * 100)}%`;
-    console.log("Updating Volume Info Display to:", volumeText);
-    document.getElementById('volume').textContent = volumeText;
-}
