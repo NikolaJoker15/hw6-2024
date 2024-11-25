@@ -21,8 +21,8 @@ window.addEventListener("load", function() {
     video.loop = false;
     
     // Update the volume info on page load
-    resetVolumeInfo();
-    console.log("Initial Volume:", video.volume);
+    console.log("AutoPlay is set to", video.autoplay);
+	console.log("Loop is set to", video.loop)
 });
 
 // Play Button
