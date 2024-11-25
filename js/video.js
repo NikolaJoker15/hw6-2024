@@ -7,6 +7,12 @@ function updateVolumeInfo() {
     document.getElementById('volume').textContent = volumeText;
 }
 
+function resetVolumeInfo() {
+    let volumeText = `${Math.round(video.volume * 0)}%`;
+    console.log("Updating Volume Info Display to:", volumeText);
+    document.getElementById('volume').textContent = volumeText;
+}
+
 
 window.addEventListener("load", function() {
     console.log("Good job opening the window");
@@ -15,7 +21,7 @@ window.addEventListener("load", function() {
     video.loop = false;
     
     // Update the volume info on page load
-    updateVolumeInfo();
+    resetVolumeInfo();
     console.log("Initial Volume:", video.volume);
 });
 
